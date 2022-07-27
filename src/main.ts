@@ -1,25 +1,32 @@
 
 import { Guid } from "guid-typescript";
 import { User } from "./models/user";
+import { isValidDescription } from "./models/validation"
 
 //#region Functions
-const isValidName = (p_name: string ): boolean | null => {
-    const re = /\w{3,}/g
-    
-    if ( !re.exec( p_name ) )
-      return null
-    
-    return true
-}
+
 //#endregion
 
 
-const name = 'Da'
+const name = 'Daniel'
 
+const info = (...args: string[]): void => {
+
+    console.log(args)
+}
+
+
+info('Daniel', 'Anselmo' )
+
+
+
+
+
+/*
 try
 {
 
-    if ( isValidName(name) )
+    if ( isValidDescription(name) )
     {
         const usr = new User(
             Guid.create()
@@ -28,12 +35,19 @@ try
         )
 
         console.log(usr.Info)
-    } else
-    throw  Error('Erros while try build the object')
+    }
+    else
+      console.log('Erros while try build the object')
+      //throw  Error('Erros while try build the object')
     
 } catch (error) {
     console.log(error)
 }
+*/
+
+
+
+
 
 
 
