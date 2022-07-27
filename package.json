@@ -1,0 +1,28 @@
+{
+  "name": "Lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnanseldev/Lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnanseldev/Lab/issues"
+  },
+  "homepage": "https://github.com/dnanseldev/Lab#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@types/node": "^18.6.1",
+    "guid-typescript": "^1.0.9"
+  }
+}
