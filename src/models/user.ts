@@ -10,8 +10,8 @@ export class User
     {
         
         this.ID = pid
-        this.name = pname        
-        this.email = pemail
+        this.name = pname !== undefined ? pname : ''     
+        this.email = pemail !== undefined ? pemail : ''
     }
     
 
@@ -20,4 +20,21 @@ export class User
         return `${this.ID}|${this.name}|${this.email}`
     }
     
+}
+
+
+export class Product
+{
+    readonly ID: any 
+    readonly description: string
+    readonly category: string
+
+    constructor( ID: any 
+                ,description: string
+                ,category: string )
+    {
+       this.ID = ID
+       this.description = description
+       this.category = category
+    }
 }

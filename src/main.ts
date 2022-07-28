@@ -1,23 +1,45 @@
 
 import { Guid } from "guid-typescript";
-import { User } from "./models/user";
+import { Product, User } from "./models/user";
 import { isValidDescription } from "./models/validation"
 
 //#region Functions
-
-//#endregion
-
-
-const name = 'Daniel'
 
 const info = (...args: string[]): void => {
 
     console.log(args)
 }
 
+const IFunc = <T extends User | Product>(param: T): T => {
+    return param
+}
 
-info('Daniel', 'Anselmo' )
+//#endregion
+//--------------------------------------------------
+//#region test are
+//const name = 'Daniel'
+//info('Daniel', 'Anselmo' )
 
+const usr = new User(
+    Guid.create()
+    ,'Daniel Stonebuilt'
+    ,'dnansel@hotmail.com'
+)
+
+
+const prdt = new Product(
+   Guid.create()
+  ,'Rich Father Poor Father'
+  ,'Book'
+)
+
+console.log( IFunc(prdt).description )
+console.log( IFunc(usr).name )
+console.log(IFunc<User>(usr))
+//console.log(prdt)
+
+//#endregion
+//---------------------------------------------------
 
 
 
