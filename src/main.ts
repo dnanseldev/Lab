@@ -10,9 +10,33 @@ const info = (...args: string[]): void => {
     console.log(args)
 }
 
-const IFunc = <T extends User | Product>(param: T): T => {
-    return param
+const IFunc = <T extends User | Product>(value: T): T => value
+
+type GenericFunc = <T>(value: T) => T;
+
+const fn1: GenericFunc = (val) => val;
+
+
+type TMessageNotification = <T>(msg: string, param?: T) => void
+
+const mn1: TMessageNotification = (msg, obj) => {
+
+    if (obj !== null && obj !== undefined )
+      console.log(msg, obj)
+    
+      console.log(msg)
 }
+
+
+
+
+
+
+
+
+
+
+
 
 //#endregion
 //--------------------------------------------------
@@ -33,9 +57,11 @@ const prdt = new Product(
   ,'Book'
 )
 
-console.log( IFunc(prdt).description )
-console.log( IFunc(usr).name )
-console.log(IFunc<User>(usr))
+
+
+//console.log( IFunc(prdt).description )
+//console.log( IFunc(usr).name )
+//console.log(IFunc<User>(usr))
 //console.log(prdt)
 
 //#endregion
@@ -68,6 +94,11 @@ try
 */
 
 
+console.log(fn1<string>('Das ist ein test'))
+console.log( fn1<number>(50) )
+
+mn1('Hello')
+mn1<User>('Hello', usr)
 
 
 
