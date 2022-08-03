@@ -1,4 +1,5 @@
 
+import { Worker } from "cluster";
 import { Guid } from "guid-typescript";
 import { Product, User } from "./models/user";
 import { isValidDescription } from "./models/validation"
@@ -26,6 +27,11 @@ const mn1: TMessageNotification = (msg, obj) => {
     
       console.log(msg)
 }
+
+
+
+
+
 
 
 
@@ -94,16 +100,51 @@ try
 */
 
 
-console.log(fn1<string>('Das ist ein test'))
-console.log( fn1<number>(50) )
+//console.log(fn1<string>('Das ist ein test'))
+//console.log( fn1<number>(50) )
 
-mn1('Hello')
-mn1<User>('Hello', usr)
-
-
+//mn1('Hello')
+//mn1<User>('Hello', usr)
 
 
 
+//#Keyof types
+
+
+
+/*
+//keyof Worker --> field names: name, ocupation, location, age
+//Worker[keyof Worker] --> Types of fields: string, number
+const printWorkerInfo = (params: keyof Worker, value: Worker[keyof Worker]): void => {
+     console.log(`${params}, ${value}`)
+}
+
+printWorkerInfo('name', 'Daniel')
+printWorkerInfo("age", '50')
+*/
+
+type Worker = {
+    name: string,
+    ocupation: string,
+    location: string,
+    age: number
+}
+
+//Type string like name of Worker type
+type WorkerName = Worker['name']
+
+const printName = (name: WorkerName) => {
+    console.log(name)
+}
+
+const w: Partial<Worker> = {
+    name: ''
+}
+
+w.name = 'Daniel Stonebuilt'
+
+printName('Stone')
+printName(w['name'])
 
 
  
