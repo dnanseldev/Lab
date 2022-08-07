@@ -10,7 +10,7 @@ const KeyExists =
 
 
 //type IFunc = <T extends Record<any, any>, K extends keyof T > (param: T) => param is T & T[K]
-type IFunc = <T extends Record<any, any>, K extends keyof T > (param: T): param is T => K in T
+//type IFunc = <T extends Record<any, any>, K extends keyof T > (param: T): param is T => K in T
 
 
 type User = {
@@ -31,18 +31,7 @@ const usr:User = {
 }
 
 
-const myFun: IFunc = (usr) => {
 
-
-    
-    
-  
-    if ( isObj(usr, 'last') )
-      console.log(usr.)
-
-    return usr
-
-}
 
 
 
