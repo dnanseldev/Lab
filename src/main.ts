@@ -32,9 +32,9 @@ const printWorker = (args: TObjectProperties<GWorker>):void => {
     console.log(`${args.wid} ${args.profession_description} $${args.salary}`)
 }
 
-const printWorkerAprim = (...args: [keyof GWorker]):void => {
+const printWorkerAprim = (value: GWorker[keyof GWorker]):void => {
 
-    for (const k of args)
+    for (const k of value)
        console.log(`${k}`)
 }
 
@@ -42,13 +42,12 @@ const printWorkerAprim = (...args: [keyof GWorker]):void => {
 
 
 printUser(usr)
-printUser({name: 'Fela', age: 38, gender: 'Male'})
+printUser({name: 'Fela2', age: 38, gender: 'Male'})
 //printGeneric(usr)
 printWorker({
      wid: Guid.create()
     ,profession_description: 'Engineer'
     ,salary: 60000
 })
-printWorkerAprim('wid');
-printWorkerAprim("salary");
-printWorkerAprim("profession_description");
+//clearaprintWorkerAprim(Guid.create());
+//printWorkerAprim("profession_description");
