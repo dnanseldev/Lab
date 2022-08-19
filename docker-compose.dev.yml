@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app:
+    image: inodeapp
+    container_name: cnodeapp
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    stdin_open: true
+    tty: true
+    command: npm run dev

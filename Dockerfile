@@ -1,22 +1,28 @@
-FROM node:18-alpine3.15
+#-----DEVELOPMENT ENVIRONMENT------------
+FROM node:18-alpine3.15 as development
 
 WORKDIR /usr/app
 
-COPY package*.json ./
-COPY tsconfig.json ./
+COPY package*.json .
 
 RUN npm install
 
 COPY . .
 
+RUN npm run build
 
-#RUN npm install --legacy-peer-deps
-# If you are building your code for production
-# RUN npm ci --only=production
+#-----PRODUCTION ENVIRONMENT------------
+FROM node:18-alpine3.15 as production
 
-#RUN npm install --quiet --production
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 
+WORKDIR /usr/app
 
+COPY package*.json .
 
+RUN npm ci --only=production
 
-CMD [ "npm", "start" ]
+COPY --from=development /usr/app/dist ./dist
+
+#CMD ["node", "dist/app.js"]

@@ -1,8 +1,0 @@
-version: '3.8'
-services:
-  app:
-    image: inodeapp
-    container_name: cnodeapp
-    build: .
-    volumes:
-      - .:/app
